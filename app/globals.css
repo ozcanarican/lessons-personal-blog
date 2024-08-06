@@ -2,32 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.bg-accent {
+  background-color: #26524b;
+}
+.accent {
+  color: #26524b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.padded {
+  @apply px-2;
+  @apply md:px-12;
+  @apply lg:px-24;
+  @apply xl:px-40;
+}
+
+.main-menu a::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  display: block;
+  opacity: 0;
+  transform: scale(0, 1);
+  transition: all 0.5s;
+  transform-origin: center;
+}
+
+@media (width >= 770px) {
+  .main-menu a:hover {
+    &::after {
+      opacity: 1 !important;
+      transform: scale(1, 1);
+    }
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.hover-spinner {
+  transition: 0.7s ease-in-out;
+}
+.hover-spinner:hover {
+  transform: rotate(365deg);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.hero-buttons a {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.4em 1.8em;
+  border-radius: 0.3em;
+}
+
+.hero-buttons .bg-white {
+  color: black !important;
+}
+
+.hero-buttons a:hover {
+  transform: scale(1.05);
+}
+
+.bg-to-black {
+  transition: all 300ms ease;
+}
+
+.bg-to-black:hover {
+  background-color: black;
+  color: white !important;
 }
