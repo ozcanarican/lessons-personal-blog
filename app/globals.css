@@ -67,3 +67,8 @@
   background-color: black;
   color: white !important;
 }
+
+.content-title {
+  font-weight: bold;
+  font-size: 1.4rem;
+}

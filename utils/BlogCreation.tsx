@@ -12,21 +12,24 @@ export default function GetBlogPosts() {
     try {
       let { birthtime } = statSync(dir + "/" + file);
       let fileContent = readFileSync(dir + "/" + file).toString();
-      fileParts = fileContent.split("-----");
-      let header: { title: string; image: string; tags: string[] } = JSON.parse(
-        fileParts[0],
-      );
+      fileParts = fileContent.split("---");
+      let header: {
+        desc: string;
+        title: string;
+        image: string;
+        tags: string[];
+      } = JSON.parse(fileParts[0]);
       posts.push({
         image: header.image,
         title: header.title,
         tags: header.tags,
+        desc: header.desc,
         content: fileParts[1],
-        fileName: file,
+        fileName: file.replace(".md", ""),
         creation: birthtime.getTime(),
       });
     } catch (e) {
       console.log("Atlanan dosya:", file, e);
-      console.log(fileParts[0]);
     }
   });
 

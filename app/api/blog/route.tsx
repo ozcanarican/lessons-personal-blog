@@ -11,7 +11,7 @@ export async function GET(req: Request) {
     let posts = GetBlogPosts();
     let subpost = posts.splice(start, end);
 
-    return new Response(JSON.stringify({ subpost }));
+    return new Response(JSON.stringify([...subpost]));
   } catch (e) {
     console.log(e);
     return new Response("", { status: 500 });

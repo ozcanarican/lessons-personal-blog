@@ -5,4 +5,5 @@ export type BlogPostType = {
   creation: number;
   image: string;
   fileName: string;
+  desc: string;
 };
