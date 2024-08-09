@@ -27,8 +27,8 @@ export function BlogCard({ blog }: { blog: BlogPostType }) {
           alt={blog.title}
           className="max-w-[300px] group-hover:scale-[102%] duration-300"
         />
-        <div className="text-xl font-bold">{blog.title}</div>
-        <div className="italic">{blog.desc}</div>
+        <div className="text-gray-800 mb-1 text-lg font-bold">{blog.title}</div>
+        <div className="italic text-gray-600">{blog.desc}</div>
       </a>
     </div>
   );
