@@ -7,6 +7,8 @@
 
 ---
 
+![Screen shot](/images/test.png)
+
 # H1 cinsi bir başlık buraya geldi
 
 Title: Creating a Personal Blog with Next.js - A Step-by-Step Markdown Guide

@@ -10,7 +10,6 @@ async function getBlogs() {
 
 export async function LandingBlogCards() {
   const blogs: BlogPostType[] = await getBlogs();
-  console.log(blogs);
   return (
     <div className="padded my-6">
       <h1 className="content-title text-gray-800 mb-3">Yazdığım Yazılar</h1>

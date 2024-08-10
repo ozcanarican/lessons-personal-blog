@@ -1,53 +1,50 @@
 import { readdirSync, statSync, readFileSync } from "fs";
 import { BlogPostType } from "../customTypes/BlogPostType";
+const dir = process.cwd() + "/markdowns";
 
 export default function GetBlogPosts(isBlog = true) {
-  const dir = process.cwd() + "/markdowns";
   let dirFiles = readdirSync(dir);
   let posts: BlogPostType[] = [];
   let refs: BlogPostType[] = [];
 
-  let fileParts: any;
-
   dirFiles.map((file) => {
-    try {
-      let { birthtime } = statSync(dir + "/" + file);
-      let fileContent = readFileSync(dir + "/" + file).toString();
-      fileParts = fileContent.split("---");
-      let header: {
-        desc: string;
-        title: string;
-        image: string;
-        tags: string[];
-      } = JSON.parse(fileParts[0]);
-      if (header.tags.includes("ref")) {
-        refs.push({
-          image: header.image,
-          title: header.title,
-          tags: header.tags,
-          desc: header.desc,
-          content: fileParts[1],
-          fileName: file.replace(".md", ""),
-          creation: birthtime.getTime(),
-        });
+    let blog = CreateBlogObject(file);
+    if (blog) {
+      if (blog.tags.includes("ref")) {
+        refs.push(blog);
       } else {
-        posts.push({
-          image: header.image,
-          title: header.title,
-          tags: header.tags,
-          desc: header.desc,
-          content: fileParts[1],
-          fileName: file.replace(".md", ""),
-          creation: birthtime.getTime(),
-        });
+        posts.push(blog);
       }
-    } catch (e) {
-      console.log("Atlanan dosya:", file, e);
     }
   });
-
   posts.sort((a, b) => b.creation - a.creation);
   refs.sort((a, b) => b.creation - a.creation);
   if (isBlog) return posts;
   else return refs;
+}
+
+export function CreateBlogObject(file: string): BlogPostType | null {
+  try {
+    let fileContent = readFileSync(dir + "/" + file).toString();
+    let { birthtime } = statSync(dir + "/" + file);
+    let fileParts = fileContent.split("---");
+    let header: {
+      desc: string;
+      title: string;
+      image: string;
+      tags: string[];
+    } = JSON.parse(fileParts[0]);
+    let blog: BlogPostType = {
+      image: header.image,
+      title: header.title,
+      tags: header.tags,
+      desc: header.desc,
+      content: fileParts[1],
+      fileName: file.replace(".md", ""),
+      creation: birthtime.getTime(),
+    };
+    return blog;
+  } catch (e) {
+    return null;
+  }
 }

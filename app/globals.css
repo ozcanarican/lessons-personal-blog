@@ -72,3 +72,50 @@
   font-weight: bold;
   font-size: 1.6rem;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer {
+  margin-top: auto;
+}
+
+.blog {
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 2rem;
+  line-height: 180%;
+}
+.blog p {
+  margin-bottom: 2rem;
+}
+.blog h1 {
+  font-size: 1.4rem;
+  font-weight: bold !important;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.blog h2 {
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 2rem 0;
+  margin-bottom: 0.2rem;
+  font-weight: bold;
+}
+
+.blog img {
+  width: 100%;
+}
+
+code {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+.reading-box {
+  max-width: 600px;
+}

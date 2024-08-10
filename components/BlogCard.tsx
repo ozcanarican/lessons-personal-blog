@@ -3,7 +3,6 @@
 import { BlogPostType } from "@/customTypes/BlogPostType";
 
 export function BlogCard({ blog }: { blog: BlogPostType }) {
-  console.log(blog);
   return (
     <div className="border relative  rounded p-2 w-full group">
       <div className="flex absolute right-0 top-0 z-10 gap-2">

@@ -4,7 +4,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 
 export function Footer() {
   return (
-    <div className="flex flex-col md:grid grid-cols-3 items-center bg-gray-900 padded py-6 text-gray-200">
+    <div className="footer flex flex-col md:grid grid-cols-3 items-center bg-gray-900 padded py-6 text-gray-200">
       <div className="hidden md:block">
         <img
           src="/images/logo.png"
