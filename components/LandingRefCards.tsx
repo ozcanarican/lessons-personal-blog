@@ -9,7 +9,8 @@ async function getRefs() {
 }
 
 export async function LandingRefCards() {
-  const refs: BlogPostType[] = await getRefs();
+  let res = await getRefs();
+  const refs: BlogPostType[] = res.posts;
   return (
     <div className="padded mt-6 py-6 bg-gray-600 text-gray-200">
       <h1 className="content-title text-gray-50 mb-12">Referanslarım</h1>

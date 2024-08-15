@@ -96,16 +96,34 @@ body {
   color: rgba(0, 0, 0, 0.85);
 }
 
-.blog h2 {
+.blog h2,
+h3 {
   font-size: 1.2rem;
   color: rgba(0, 0, 0, 0.8);
   margin: 2rem 0;
   margin-bottom: 0.2rem;
   font-weight: bold;
 }
-
+.blog h3 {
+  font-size: 1.1rem;
+}
 .blog img {
   width: 100%;
+}
+
+.blog table {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.blog thead {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.blog td {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 code {

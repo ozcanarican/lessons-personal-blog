@@ -9,9 +9,10 @@ export async function GET(req: Request) {
       : 0;
     let end: number = params.has("end") ? parseInt(params.get("end")!) : 10;
     let posts = GetBlogPosts();
+    let total = posts.length;
     let subpost = posts.splice(start, end);
 
-    return new Response(JSON.stringify([...subpost]));
+    return new Response(JSON.stringify({ total, posts: [...subpost] }));
   } catch (e) {
     console.log(e);
     return new Response("", { status: 500 });

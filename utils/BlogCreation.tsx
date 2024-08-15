@@ -8,6 +8,7 @@ export default function GetBlogPosts(isBlog = true) {
   let refs: BlogPostType[] = [];
 
   dirFiles.map((file) => {
+    console.log(file);
     let blog = CreateBlogObject(file);
     if (blog) {
       if (blog.tags.includes("ref")) {
@@ -27,7 +28,7 @@ export function CreateBlogObject(file: string): BlogPostType | null {
   try {
     let fileContent = readFileSync(dir + "/" + file).toString();
     let { birthtime } = statSync(dir + "/" + file);
-    let fileParts = fileContent.split("---");
+    let fileParts = fileContent.split("-@-@-");
     let header: {
       desc: string;
       title: string;
@@ -45,6 +46,7 @@ export function CreateBlogObject(file: string): BlogPostType | null {
     };
     return blog;
   } catch (e) {
+    console.log(e);
     return null;
   }
 }

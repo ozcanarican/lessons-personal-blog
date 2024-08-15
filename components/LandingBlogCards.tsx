@@ -9,11 +9,12 @@ async function getBlogs() {
 }
 
 export async function LandingBlogCards() {
-  const blogs: BlogPostType[] = await getBlogs();
+  const result = await getBlogs();
+  const blogs: BlogPostType[] = result.posts;
   return (
     <div className="padded my-6">
       <h1 className="content-title text-gray-800 mb-3">Yazdığım Yazılar</h1>
-      <div className="flex flex-col md:grid md:grid-cols-2 gap-2 lg:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 justify-between">
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-8 lg:grd-cols-2 xl:grid-cols-3  2xl:grid-cols-4 justify-between">
         {blogs.map((blog, index) => {
           return <BlogCard blog={blog} key={"blogcard" + index} />;
         })}
