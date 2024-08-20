@@ -16,6 +16,13 @@
   @apply xl:px-40;
 }
 
+input,
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.5rem;
+}
+
 .main-menu a::after {
   content: "";
   width: 100%;

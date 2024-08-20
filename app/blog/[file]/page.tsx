@@ -49,6 +49,11 @@ export default async function BlogReadingPage({
     <div className="padded mt-6 blog flex justify-center">
       <div className="reading-box">
         <div className="font-black text-4xl mb-6 text-center">{blog.title}</div>
+        <img
+          src={blog.image}
+          alt={blog.title}
+          className="w-full mb-4 rounded"
+        />
         <Markdown
           remarkPlugins={[remarkGfm]}
           children={blog.content}

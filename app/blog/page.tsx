@@ -43,7 +43,6 @@ export default async function BlogPage({
               className="bg-black text-white hover:bg-blue-600"
             >
               <a href={`/blog?page=${page}`} className="py-1 px-3 block">
-                {" "}
                 {page + 1}
               </a>
             </div>
