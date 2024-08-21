@@ -10,10 +10,7 @@
 }
 
 .padded {
-  @apply px-2;
-  @apply md:px-12;
-  @apply lg:px-24;
-  @apply xl:px-40;
+  @apply px-2 md:px-12 lg:px-24 xl:px-48 2xl:px-72;
 }
 
 input,

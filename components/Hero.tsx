@@ -1,8 +1,8 @@
 "use client";
 export default function HeroSection() {
   return (
-    <div className="bg-accent items-center padded py-2 md:grid grid-cols-[500px_auto]">
-      <div className="">
+    <div className="bg-accent items-end padded md:grid md:grid-cols-[400px_auto] lg:grid-cols-[500px_auto]">
+      <div className="md:pb-12">
         <h1 className="text-white text-4xl font-black">
           Merhaba, Ben Fullstack Developer Özcan ARICAN
         </h1>
@@ -19,11 +19,13 @@ export default function HeroSection() {
           </a>
         </div>
       </div>
-      <img
-        src="/images/heroimg.png"
-        alt="Özcan ARICAN"
-        className="w-full hidden md:block"
-      />
+      <div className="flex justify-end">
+        <img
+          src="/images/heroimg.png"
+          alt="Özcan ARICAN"
+          className="w-full max-w-[700px] hidden md:block"
+        />
+      </div>
     </div>
   );
 }
