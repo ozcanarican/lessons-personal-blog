@@ -2,11 +2,12 @@
 
 import { ActionSendMail } from "@/actions/ActionSendMail";
 import { ChangeEvent, useEffect, useState } from "react";
+import { FaEnvelope, FaPhone, FaYoutube } from "react-icons/fa";
 
 export default function ContactPage() {
   const [data, setData] = useState({
-    email: "info@ffff.com",
-    telefon: "999",
+    email: "",
+    telefon: "",
     mesaj: "",
     isim: "",
   });
@@ -40,7 +41,17 @@ export default function ContactPage() {
       <div className="reading-box w-full">
         {sending == 0 && (
           <>
-            <h1 className="content-title mb-4">İletişim Formu</h1>
+            <h1 className="content-title">İletişim Formu</h1>
+            <div className="flex justify-between items-center bg-slate-600 text-slate-50 mb-4  p-2 rounded">
+              <div className="flex items-center gap-1">
+                <FaEnvelope /> me@ozcanarican.com
+              </div>
+              <a href="https://youtube.com/@tazekod" target="_blank">
+                <div className="flex items-center gap-1">
+                  <FaYoutube /> @tazekod
+                </div>
+              </a>
+            </div>
             <div className="border rounded p-2 bg-slate-50 shadow-sm px-4">
               <div className="font-bold text-gray-800 mt-1">
                 E-mail Adresiniz

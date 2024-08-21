@@ -47,7 +47,7 @@ export default async function BlogReadingPage({
   }
   return (
     <div className="padded mt-6 blog flex justify-center">
-      <div className="reading-box">
+      <div className="reading-box 2xl:max-w-[1000px]">
         <div className="font-black text-4xl mb-6 text-center">{blog.title}</div>
         <img
           src={blog.image}
