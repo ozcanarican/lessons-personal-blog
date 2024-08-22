@@ -1,3 +1,4 @@
+import { ActionGetFile } from "@/actions/ActionGetFile";
 import { BlogPostType } from "@/customTypes/BlogPostType";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
@@ -10,30 +11,17 @@ export async function generateMetadata({
   params,
 }: {
   params: { file: string };
-}): Metadata {
-  let blog = await getBlog(params.file);
+}): Promise<Metadata> {
+  let blog = await ActionGetFile(params.file);
   return {
     title: blog?.title,
     description: blog?.desc,
     openGraph: {
-      title: blog.title,
+      title: blog?.title,
       description: blog?.desc,
       images: [process.env.HOST! + "/" + blog?.image],
     },
   };
-}
-
-async function getBlog(fileName: string) {
-  try {
-    const res = await fetch(process.env.HOST! + "/api/blog/" + fileName, {
-      cache: "force-cache",
-    });
-    let blog: BlogPostType = await res.json();
-    return blog;
-  } catch (e) {
-    console.log(e);
-    return null;
-  }
 }
 
 export default async function BlogReadingPage({
@@ -41,7 +29,7 @@ export default async function BlogReadingPage({
 }: {
   params: { file: string };
 }) {
-  let blog = await getBlog(params.file);
+  let blog = await ActionGetFile(params.file);
   if (!blog) {
     redirect("/");
   }
@@ -56,19 +44,18 @@ export default async function BlogReadingPage({
         />
         <Markdown
           remarkPlugins={[remarkGfm]}
-          children={blog.content}
           components={{
             code(props) {
               const { children, className, node, ...rest } = props;
               const match = /language-(\w+)/.exec(className || "");
               return match ? (
                 <SyntaxHighlighter
-                  {...rest}
                   PreTag="div"
-                  children={String(children).replace(/\n$/, "")}
                   language={match[1]}
                   style={dark}
-                />
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
               ) : (
                 <code {...rest} className={className}>
                   {children}
@@ -76,7 +63,9 @@ export default async function BlogReadingPage({
               );
             },
           }}
-        />
+        >
+          {blog.content}
+        </Markdown>
       </div>
     </div>
   );

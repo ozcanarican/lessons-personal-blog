@@ -14,7 +14,7 @@ export async function ActionSendMail(
       user: process.env.SMTP_USERNAME,
       pass: process.env.SMTP_PASSWORD,
     },
-  });
+  } as any);
 
   await transporter.sendMail({
     from: process.env.SMTP_SENDER, // sender address

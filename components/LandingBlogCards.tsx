@@ -1,15 +1,9 @@
 import { BlogPostType } from "@/customTypes/BlogPostType";
 import { BlogCard } from "./BlogCard";
-
-async function getBlogs() {
-  const res = await fetch(process.env.HOST! + "/api/blog", {
-    cache: "force-cache",
-  });
-  return await res.json();
-}
+import { ActionGetBlogs } from "@/actions/ActionGetBlogs";
 
 export async function LandingBlogCards() {
-  const result = await getBlogs();
+  const result = await ActionGetBlogs();
   const blogs: BlogPostType[] = result.posts;
   return (
     <div className="padded my-6">

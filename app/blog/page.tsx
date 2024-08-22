@@ -1,3 +1,4 @@
+import { ActionGetBlogs } from "@/actions/ActionGetBlogs";
 import { BlogCard } from "@/components/BlogCard";
 import { BlogPostType } from "@/customTypes/BlogPostType";
 
@@ -6,11 +7,7 @@ const amount = 12;
 async function getBlogs(
   page: number,
 ): Promise<{ total: number; posts: BlogPostType[] }> {
-  const url = `${process.env.HOST}/api/blog?start=${page * amount}&end=${page * amount + amount}`;
-  console.log(url);
-  const res = await fetch(url, { cache: "force-cache" });
-  const result = await res.json();
-  return result;
+  return await ActionGetBlogs(page * amount, page * amount + amount);
 }
 
 export default async function BlogPage({
@@ -52,3 +49,5 @@ export default async function BlogPage({
     </div>
   );
 }
+
+export const dynamic = "force-static";

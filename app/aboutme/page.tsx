@@ -12,10 +12,10 @@ export default function AboutMe() {
           className="float-right w-1/3 m-4 rounded"
         />
         <p />
-        Liseden mezun olduktan sonra, [Web 1.0] 'ın tüm dünyayı kasıp kavurduğu,
+        Liseden mezun olduktan sonra, [Web 1.0] ın tüm dünyayı kasıp kavurduğu,
         mouse cursorlarına kelebekler konulan, her köşe bucakta GIF ler ile kaos
-        yaratan web designlerına bakarak 'ben bu işi yaparım arkadaş' diyerek
-        yola çıktım.
+        yaratan web designlerına bakarak ben bu işi yaparım arkadaş diyerek yola
+        çıktım.
         <p />
         İlk öğrendiğim geliştirme ortamı HTML oldu. Bunun yanına CSS koymamın
         bile en aşağı 3 sene civarı aldığını hatırlıyorum. Uzun bir süre statik
@@ -26,7 +26,7 @@ export default function AboutMe() {
         dillerden birisi olan Java ile ilk tangomu da yapmış olmuştum.
         <p />
         Müşteri portföyüm ve bilgi dağarcığım geliştikçe, 2004 yılı gibi kendimi
-        PHP 'nin komplike dünyasında buluvermem işten bile olmadı. Bugün hala
+        PHP nin komplike dünyasında buluvermem işten bile olmadı. Bugün hala
         sıklıkla kulladığım PHP dili ile uzun yıllar süren, derin bir bağım
         olduğunu söyleyebilirim
         <p />
